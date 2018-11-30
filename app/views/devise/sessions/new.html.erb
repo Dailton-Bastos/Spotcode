@@ -1,0 +1,39 @@
+<section class="hero is-success is-fullheight">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <div class="column is-4 is-offset-4">
+                <h3 class="title has-text-grey">Entrar</h3>       
+                <div class="box">
+                    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                        <div class="field">
+                            <div class="control">
+                                <%= f.email_field :email, class:"input is-large", type:"email", 
+                                placeholder:"Email", autofocus:"" %>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <%= f.password_field :password, class:"input is-large", type:"password",
+                                placeholder:"Senha"%>
+                            </div>
+                        </div>
+                      <% if devise_mapping.rememberable? -%>  
+                        <div class="field">
+                          <label class="checkbox">
+                            <%= f.check_box :remember_me, type: "checkbox" %>
+                            Lembre-me
+                          </label>
+                        </div>
+                      <% end -%>
+                        <%= f.submit "Login", class:"button is-block is-info is-large is-fullwidth" %>
+                    </form>
+                    <% end %>
+                </div>
+                <p class="has-text-grey">
+                  <%= link_to  "Cadastrar", new_user_registration_path%>&nbsp;·&nbsp;
+                  <%= link_to  "Esqueci a senha", new_user_password_path %>&nbsp;·&nbsp;
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
